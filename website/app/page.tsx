@@ -1,5 +1,6 @@
 "use client";
 
+import { FeaturesSectionWithBentoGrid } from "@/components/BentoGrid";
 import { Hero } from "@/components/HeroSection";
 import { TestimonialsColumn } from "@/components/ui/testimony-column";
 
@@ -67,10 +68,20 @@ const thirdColumn = testimonials.slice(6, 9);
 export default function Home() {
   return (
     <>
-      <Hero />
+      {/* ---------- HERO SECTION ---------- */}
+      <section className="relative pb-20 bg-black">
+        <Hero />
+      </section>
 
-      {/* Testimonial Section */}
-      <section className="bg-background my-20 relative">
+      {/* ---------- BENTO SECTION ---------- */}
+      <section className="relative py-28">
+        <div className="container mx-auto px-4">
+          <FeaturesSectionWithBentoGrid />
+        </div>
+      </section>
+
+      {/* ---------- TESTIMONIALS ---------- */}
+      <section className="bg-background py-28 bg-black">
         <div className="container z-10 mx-auto">
           <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto">
             <div className="flex justify-center">
@@ -86,13 +97,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex justify-center gap-6 mt-10 
+          <div
+            className="flex justify-center gap-6 mt-10 
             mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]
             max-h-[740px] overflow-hidden"
           >
             <TestimonialsColumn testimonials={firstColumn} duration={15} />
-            <TestimonialsColumn testimonials={secondColumn} duration={18} className="hidden md:block" />
-            <TestimonialsColumn testimonials={thirdColumn} duration={16} className="hidden lg:block" />
+            <TestimonialsColumn
+              testimonials={secondColumn}
+              duration={18}
+              className="hidden md:block"
+            />
+            <TestimonialsColumn
+              testimonials={thirdColumn}
+              duration={16}
+              className="hidden lg:block"
+            />
           </div>
         </div>
       </section>
